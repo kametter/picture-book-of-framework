@@ -16,10 +16,12 @@
         });
 
         $('#book').on('swiperight', function () {
+          console.log('swipe right');
           $('#book').turn('previous');
         });
 
         $('#book').on('swipeleft', function () {
+          console.log('swipe left');
           $('#book').turn('next');
         });
 
@@ -27,10 +29,12 @@
         let startX;
 
         $('#book').on('mousedown', function (e) {
+          console.log('mousedown');
           startX = e.pageX; // ドラッグの開始位置を記録
         });
 
         $('#book').on('mouseup', function (e) {
+          console.log('mouseup');
           let endX = e.pageX; // ドラッグの終了位置を記録
           let diffX = endX - startX;
 
@@ -102,6 +106,7 @@
       }
       #book .text_page .content {
         font-size: 18px;
+        padding: 0 5vw;
       }
       .center {
         text-align: center;
