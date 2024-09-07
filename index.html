@@ -42,6 +42,19 @@
             $('#book').turn('next');
           }
         });
+
+        $('#book').on('click', function (e) {
+          // 画面の幅を取得
+          const bookWidth = $(this).width();
+          // クリックされた位置が画面の右半分か左半分かを判定
+          if (e.pageX > bookWidth / 2) {
+            // 右半分をクリックしたら次のページへ
+            $('#book').turn('next');
+          } else {
+            // 左半分をクリックしたら前のページへ
+            $('#book').turn('previous');
+          }
+        });
       });
 
       $(window).bind('keydown', function (e) {
