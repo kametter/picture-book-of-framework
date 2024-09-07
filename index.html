@@ -3,12 +3,14 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Turn.js サンプル</title>
+    <title>リリの魔法の道具箱</title>
     <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
     <script src="turn.min.js"></script>
     <script>
       $(document).ready(function () {
         $('#book').turn({
+          width: '100vw',
+          height: '100vh',
           gradients: true,
           acceleration: true,
         });
@@ -64,8 +66,6 @@
     </script>
     <style>
       #book {
-        width: 1300px;
-        height: 900px;
         background-color: #f0f0f0;
         margin: 0 auto;
       }
@@ -90,12 +90,14 @@
       #book .text_page {
         background-color: #ffffff;
         padding: 20px;
+        display: flex;
+        flex-flow: column;
+        justify-content: center;
       }
       #book .text_page .title {
         text-align: center;
         font-size: 24px;
         font-weight: bold;
-        margin-top: 80px;
         margin-bottom: 60px;
       }
       #book .text_page .content {
