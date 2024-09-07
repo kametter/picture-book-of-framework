@@ -12,41 +12,41 @@
           gradients: true,
           acceleration: true,
         });
+
+        $('#book').on('swiperight', function () {
+          $('#book').turn('previous');
+        });
+
+        $('#book').on('swipeleft', function () {
+          $('#book').turn('next');
+        });
+
+        // マウスのドラッグ操作でPCでもフリック操作を模倣する
+        let startX;
+
+        $('#book').on('mousedown', function (e) {
+          startX = e.pageX; // ドラッグの開始位置を記録
+        });
+
+        $('#book').on('mouseup', function (e) {
+          let endX = e.pageX; // ドラッグの終了位置を記録
+          let diffX = endX - startX;
+
+          // 右にドラッグした場合（swiperight相当）
+          if (diffX > 50) {
+            $('#book').turn('previous');
+          }
+
+          // 左にドラッグした場合（swipeleft相当）
+          if (diffX < -50) {
+            $('#book').turn('next');
+          }
+        });
       });
 
       $(window).bind('keydown', function (e) {
         if (e.keyCode == 37) $('#book').turn('previous');
         else if (e.keyCode == 39) $('#book').turn('next');
-      });
-
-      $('#book').on('swiperight', function () {
-        $('#book').turn('previous');
-      });
-
-      $('#book').on('swipeleft', function () {
-        $('#book').turn('next');
-      });
-
-      // マウスのドラッグ操作でPCでもフリック操作を模倣する
-      let startX;
-
-      $('#book').on('mousedown', function (e) {
-        startX = e.pageX; // ドラッグの開始位置を記録
-      });
-
-      $('#book').on('mouseup', function (e) {
-        let endX = e.pageX; // ドラッグの終了位置を記録
-        let diffX = endX - startX;
-
-        // 右にドラッグした場合（swiperight相当）
-        if (diffX > 50) {
-          flipbook.turn('previous');
-        }
-
-        // 左にドラッグした場合（swipeleft相当）
-        if (diffX < -50) {
-          flipbook.turn('next');
-        }
       });
     </script>
     <style>
