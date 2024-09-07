@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Turn.js サンプル</title>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+    <script src="turn.min.js"></script>
+    <script>
+      $(document).ready(function () {
+        $('#book').turn({
+          gradients: true,
+          acceleration: true,
+        });
+      });
+
+      $(window).bind('keydown', function (e) {
+        if (e.keyCode == 37) $('#book').turn('previous');
+        else if (e.keyCode == 39) $('#book').turn('next');
+      });
+    </script>
+    <style>
+      #book {
+        width: 1600px;
+        height: 1100px;
+        background-color: #f0f0f0;
+        margin: 0 auto;
+      }
+      #book .front_cover {
+        background-image: url(images/front_cover.webp);
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+      }
+      #book .back_cover {
+        background-image: url(images/back_cover.webp);
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+      }
+      #book .image_page {
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-color: #ffffff;
+      }
+      #book .text_page {
+        background-color: #ffffff;
+        padding: 20px;
+      }
+      #book .text_page .title {
+        text-align: center;
+        font-size: 24px;
+        font-weight: bold;
+        margin-top: 80px;
+        margin-bottom: 60px;
+      }
+      #book .text_page .content {
+        font-size: 18px;
+      }
+      .center {
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="book">
+      <div class="front_cover"></div>
+      <div class="image_page" style="background-image: url(images/step1.webp)"></div>
+      <div class="text_page">
+        <div class="title">リリの夢</div>
+        <div class="content">
+          <p>主人公のリリは、みんなの役に立つ素敵なアプリを作りたいと思っていました。</p>
+          <p>でも、何から始めればいいのか分かりません。</p>
+          <p>「どうすればアプリを作れるんだろう？」</p>
+          <p>と悩んでいました。</p>
+        </div>
+      </div>
+      <div class="image_page" style="background-image: url(images/step2.webp)"></div>
+      <div class="text_page">
+        <div class="title">魔法の道具箱の登場</div>
+        <div class="content">
+          <p>リリが公園でぼんやりしていると、不思議な魔法使いが現れました。</p>
+          <p>「君には素晴らしい夢があるね。これを使ってアプリを作ってみよう」</p>
+          <p>と、魔法の道具箱を渡されます。</p>
+        </div>
+      </div>
+      <div class="image_page" style="background-image: url(images/step3.webp)"></div>
+      <div class="text_page">
+        <div class="title">道具箱の中身</div>
+        <div class="content">
+          <p>リリが道具箱を開けると、中にはたくさんの道具が入っています。</p>
+          <p>「これがRailsというフレームワークだよ」</p>
+          <p>と魔法使いが説明します。</p>
+          <p>「この道具を使うと、複雑なアプリも簡単に作れるんだよ。」</p>
+        </div>
+      </div>
+      <div class="image_page" style="background-image: url(images/step4.webp)"></div>
+      <div class="text_page">
+        <div class="title">ベースを作ろう！</div>
+        <div class="content">
+          <p>「まずは『設計図』を使って土台を作ろう」</p>
+          <p>と魔法使いが教えます。</p>
+          <p>この設計図が</p>
+          <p class="center">MVC（Model, View, Controller）</p>
+          <p>の仕組みだと説明します。</p>
+          <p>「モデルはデータの形を決め、ビューは見た目、コントローラーは指示を出すんだよ。」</p>
+        </div>
+      </div>
+      <div class="image_page" style="background-image: url(images/step5.webp)"></div>
+      <div class="text_page">
+        <div class="title">データを集める</div>
+        <div class="content">
+          <p>リリはデータを集めるための</p>
+          <p class="center">「モデルの魔法の巻物」</p>
+          <p>を手にします。</p>
+          <p>これがModelの部分で、アプリのデータの設計を決めます。</p>
+          <p>「データを正しく管理することが大切だよ」</p>
+          <p>と魔法使いが言います。</p>
+        </div>
+      </div>
+      <div class="image_page" style="background-image: url(images/step6.webp)"></div>
+      <div class="text_page">
+        <div class="title">見た目を作ろう！</div>
+        <div class="content">
+          <p>次に、リリは</p>
+          <p class="center">「ビューのキャンバス」</p>
+          <p>を広げます。</p>
+          <p>「これでアプリの見た目を作るんだ」</p>
+          <p>と魔法使いが教えます。</p>
+          <p>Viewがユーザーにどのように表示されるかを決めるものだと説明します。</p>
+        </div>
+      </div>
+      <div class="image_page" style="background-image: url(images/step7.webp)"></div>
+      <div class="text_page">
+        <div class="title">動かす魔法</div>
+        <div class="content">
+          <p>「これでアプリが動くようにしよう！」</p>
+          <p>と魔法使いは指を鳴らします。</p>
+          <p>Controllerは、ユーザーがアプリに何をして欲しいかを伝える部分です。</p>
+          <p>「コントローラーがしっかり指示を出して、モデルやビューが動くんだよ。」</p>
+        </div>
+      </div>
+      <div class="image_page" style="background-image: url(images/step8.webp)"></div>
+      <div class="text_page">
+        <div class="title">自動で仕事をしてくれる！</div>
+        <div class="content">
+          <p>
+            リリは驚きます。
+          </p>
+          <p>「でも、こんなにたくさんの作業を一人でできるの？」</p>
+          <p>魔法使いは笑って</p>
+          <p>「大丈夫、Railsは自動的にたくさんの仕事をしてくれるんだ」</p>
+          <p>と言います。</p>
+          <p>「だから短い時間で素晴らしいものが作れるんだよ。」</p>
+        </div>
+      </div>
+      <div class="image_page" style="background-image: url(images/step9.webp)"></div>
+      <div class="text_page">
+        <div class="title">完成したアプリ</div>
+        <div class="content">
+          <p>リリはついにアプリを完成させます。</p>
+          <p>「みんなが簡単に使えるアプリができた！」</p>
+          <p>と喜ぶリリ。</p>
+          <p>魔法使いは</p>
+          <p>「君が作りたいものを形にできたね」</p>
+          <p>と微笑みます。</p>
+        </div>
+      </div>
+      <div class="image_page" style="background-image: url(images/step10.webp)"></div>
+      <div class="text_page">
+        <div class="title">次の冒険へ</div>
+        <div class="content">
+          <p>「これで終わり？」</p>
+          <p>とリリが尋ねると、魔法使いは</p>
+          <p>「アプリ作りの冒険は始まったばかり。次はもっと大きな夢を追いかけよう」</p>
+          <p>と言います。</p>
+          <p>リリは笑顔で</p>
+          <p>「うん！」</p>
+          <p>と答え、新しい冒険に向かいます。</p>
+        </div>
+      </div>
+      <div class="back_cover"></div>
+    </div>
+  </body>
+</html>
