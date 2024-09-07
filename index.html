@@ -18,11 +18,19 @@
         if (e.keyCode == 37) $('#book').turn('previous');
         else if (e.keyCode == 39) $('#book').turn('next');
       });
+
+      $('#book').on('swiperight', function () {
+        $('#book').turn('previous');
+      });
+
+      $('#book').on('swipeleft', function () {
+        $('#book').turn('next');
+      });
     </script>
     <style>
       #book {
-        width: 1600px;
-        height: 1100px;
+        width: 1200px;
+        height: 800px;
         background-color: #f0f0f0;
         margin: 0 auto;
       }
@@ -145,9 +153,7 @@
       <div class="text_page">
         <div class="title">自動で仕事をしてくれる！</div>
         <div class="content">
-          <p>
-            リリは驚きます。
-          </p>
+          <p>リリは驚きます。</p>
           <p>「でも、こんなにたくさんの作業を一人でできるの？」</p>
           <p>魔法使いは笑って</p>
           <p>「大丈夫、Railsは自動的にたくさんの仕事をしてくれるんだ」</p>
